@@ -1,0 +1,43 @@
+:root {
+  --color-p1: hsl(256, 26%, 20%);
+  --color-p2: hsl(180, 97%, 13%);
+  --color-p3: hsl(174, 96%, 18%);
+  --color-p4: hsl(169, 67%, 45%);
+  --color-p5: hsl(216, 30%, 68%);
+  --color-p6: hsl(180, 57%, 88%);
+  --color-p7: #c5e4e7;
+  --color-n1: hsl(270, 9%, 17%);
+  --color-n2: hsl(273, 4%, 51%);
+  --color-n3: hsl(0, 0%, 98%);
+}
+
+.color-p1 {
+  color: var(--color-p1);
+}
+.color-p2 {
+  color: var(--color-p2);
+}
+.color-p3 {
+  color: var(--color-p3);
+}
+.color-p4 {
+  color: var(--color-p4);
+}
+.color-p5 {
+  color: var(--color-p5);
+}
+.color-p6 {
+  color: var(--color-p6);
+}
+.color-p7 {
+  color: var(--color-p7);
+}
+.color-n1 {
+  color: var(--color-n1);
+}
+.color-n2 {
+  color: var(--color-n2);
+}
+.color-n3 {
+  color: var(--color-n3);
+}
