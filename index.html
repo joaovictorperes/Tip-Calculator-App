@@ -31,25 +31,33 @@
   </header>
 
   <main>
-    Bill
-
-    Select Tip %
-    5%
-    10%
-    15%
-    25%
-    50%
-    Custom
-
-    Number of People
-
-    Tip Amount
-    / person
-
-    Total
-    / person
-
-    Reset
+    <div class="calculator-main">
+      <div>
+        <label for="bill">Bill</label>
+        <input type="number" name="bill" id="bill">
+      </div>
+      <div>
+        Select Tip %
+        <button type="button">5%</button>
+        <button type="button">10%</button>
+        <button type="button">15%</button>
+        <button type="button">25%</button>
+        <button type="button">50%</button>
+        <label for="custom"></label>
+        <input type="number" name="custom" id="custom" placeholder="Custom">
+      </div>
+      <div>
+        <label for="people">Number of People</label>
+        <input type="number" name="people" id="people">
+      </div>
+      <div>
+        Tip Amount
+        / person
+        Total
+        / person
+        Reset
+      </div>
+    </div>
   </main>
 
 

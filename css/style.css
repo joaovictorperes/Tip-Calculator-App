@@ -1,5 +1,10 @@
+/*Header*/
 @import "./global/header.css";
 @import "./global/global.css";
 
+/*Main*/
+@import "./main/calculator.css";
+
 /*Utility*/
 @import "./utility/colors.css";
+@import "./utility/components.css";

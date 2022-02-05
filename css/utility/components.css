@@ -1,0 +1,26 @@
+input {
+  background-color: var(--color-n3);
+  border: 3px solid var(--color-n3);
+  color: var(--color-p2);
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 8px 0px;
+  margin-top: 8px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input:focus {
+  border: 3px solid var(--color-p4);
+}
