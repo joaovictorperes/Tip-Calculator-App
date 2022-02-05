@@ -10,7 +10,10 @@
   <title>Frontend Mentor | Tip calculator app</title>
 
   <link rel="stylesheet" href="css/style.css">
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .attribution {
       font-size: 11px;
@@ -32,11 +35,12 @@
 
   <main>
     <div class="calculator-main">
-      <div>
+      <div class="calculator-input">
         <label for="bill">Bill</label>
+        <img src="./images/icon-dollar.svg" alt="">
         <input type="number" name="bill" id="bill">
       </div>
-      <div>
+      <div class="calculator-options">
         Select Tip %
         <button type="button">5%</button>
         <button type="button">10%</button>
@@ -46,9 +50,10 @@
         <label for="custom"></label>
         <input type="number" name="custom" id="custom" placeholder="Custom">
       </div>
-      <div>
+      <div class="calculator-input">
         <label for="people">Number of People</label>
-        <input type="number" name="people" id="people">
+        <img src="./images/icon-person.svg" alt="">
+        <input name="people" id="people">
       </div>
       <div>
         Tip Amount

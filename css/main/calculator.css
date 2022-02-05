@@ -1,5 +1,17 @@
 .calculator-main {
-  background-color: var(--color-n4);
+  background-color: var(--color-n6);
   border-radius: 20px 20px 0px 0px;
   padding: 30px 30px;
+  display: grid;
+  gap: 30px;
+}
+
+.calculator-input {
+  position: relative;
+}
+
+.calculator-input img {
+  position: absolute;
+  top: 40px;
+  left: 16px;
 }

@@ -1,14 +1,16 @@
 input {
-  background-color: var(--color-n3);
-  border: 3px solid var(--color-n3);
-  color: var(--color-p2);
+  background-color: var(--color-n5);
+  border: 3px solid var(--color-n5);
+  color: var(--color-n1);
   border-radius: 4px;
   box-sizing: border-box;
   outline: none;
   display: block;
   width: 100%;
-  padding: 8px 0px;
+  padding: 4px 16px;
   margin-top: 8px;
+  text-align: right;
+  font: var(--font-b);
 }
 
 input::-webkit-outer-spin-button,
@@ -22,5 +24,5 @@ input[type="number"] {
 }
 
 input:focus {
-  border: 3px solid var(--color-p4);
+  border: 3px solid var(--color-p1);
 }
