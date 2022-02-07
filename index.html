@@ -34,35 +34,39 @@
   </header>
 
   <main>
-    <div class="calculator-main">
-      <div class="calculator-input">
-        <label for="bill">Bill</label>
-        <img src="./images/icon-dollar.svg" alt="">
-        <input type="number" name="bill" id="bill">
+    <form action="">
+      <div class="calculator-main">
+        <div class="calculator-input">
+          <label for="bill">Bill</label>
+          <img src="./images/icon-dollar.svg" alt="">
+          <input type="number" name="bill" id="bill">
+        </div>
+        <div class="calculator-options">
+          Select Tip %
+          <button type="button">5%</button>
+          <button type="button">10%</button>
+          <button type="button">15%</button>
+          <button type="button">25%</button>
+          <button type="button">50%</button>
+          <div class="input-custom">
+            <label for="custom"></label>
+            <input type="number" name="custom" id="custom" placeholder="Custom">
+          </div>
+        </div>
+        <div class="calculator-input">
+          <label for="people">Number of People</label>
+          <img src="./images/icon-person.svg" alt="">
+          <input name="people" id="people">
+        </div>
+        <div>
+          Tip Amount
+          / person
+          Total
+          / person
+          Reset
+        </div>
       </div>
-      <div class="calculator-options">
-        Select Tip %
-        <button type="button">5%</button>
-        <button type="button">10%</button>
-        <button type="button">15%</button>
-        <button type="button">25%</button>
-        <button type="button">50%</button>
-        <label for="custom"></label>
-        <input type="number" name="custom" id="custom" placeholder="Custom">
-      </div>
-      <div class="calculator-input">
-        <label for="people">Number of People</label>
-        <img src="./images/icon-person.svg" alt="">
-        <input name="people" id="people">
-      </div>
-      <div>
-        Tip Amount
-        / person
-        Total
-        / person
-        Reset
-      </div>
-    </div>
+    </form>
   </main>
 
 
