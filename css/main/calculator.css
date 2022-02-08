@@ -35,15 +35,20 @@
 }
 
 .calculator-options div {
+  display: block;
   background-color: var(--color-n1);
   color: var(--color-n6);
   border-radius: 4px;
   width: 100%;
-  box-sizing: border-box;
   max-width: 150px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  box-sizing: border-box;
+  padding: 10px 10px;
   text-align: center;
+}
+
+.calculator-options input:checked + div {
+  background-color: var(--color-p1);
+  color: var(--color-n1);
 }
 
 .calculator-options .input-custom {

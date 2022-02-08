@@ -21,9 +21,10 @@ fieldset {
 }
 
 input[type="radio"] {
-  padding: 0px;
-  margin: 0px;
-  display: none;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  width: 10px;
 }
 
 .input-custom input {
