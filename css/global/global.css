@@ -19,3 +19,13 @@ fieldset {
   padding: 0px;
   border: none;
 }
+
+input[type="radio"] {
+  padding: 0px;
+  margin: 0px;
+  display: none;
+}
+
+.input-custom input {
+  margin-top: 0px;
+}

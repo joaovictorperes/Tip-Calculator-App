@@ -21,9 +21,6 @@
   left: 16px;
 }
 
-.select-options {
-}
-
 .select-options legend {
   font-size: 1rem;
 }
@@ -31,4 +28,25 @@
 .calculator-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.calculator-options div {
+  background-color: var(--color-n1);
+  color: var(--color-n6);
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 150px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.calculator-options .input-custom {
+  background: none;
+  padding: 0px;
 }
