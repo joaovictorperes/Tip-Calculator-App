@@ -26,3 +26,7 @@ input[type="number"] {
 input:focus {
   border: 3px solid var(--color-p1);
 }
+
+.container {
+  padding: 0px 30px;
+}

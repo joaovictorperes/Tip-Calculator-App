@@ -36,12 +36,12 @@
   <main>
     <form action="/">
       <div class="calculator-main">
-        <div class="calculator-input">
+        <div class="calculator-input container">
           <label class="font-b color-n2" for="bill">Bill</label>
           <img src="./images/icon-dollar.svg" alt="">
           <input type="number" name="bill" id="bill">
         </div>
-        <fieldset class="select-options">
+        <fieldset class="select-options container">
           <legend class="font-b color-n2">Select Tip %</legend>
           <div class="calculator-options font-b">
             <input type="radio" name="option" value="option5" id="option5">
@@ -69,23 +69,32 @@
               <label for="option">50%</label>
             </div>
 
-            <input type="number" name="custom" id="custom" placeholder="Custom">
             <div class="input-custom">
               <label for="custom"></label>
+              <input type="number" name="custom" id="custom" placeholder="Custom">
             </div>
           </div>
         </fieldset>
-        <div class="calculator-input">
+        <div class="calculator-input container">
           <label class="font-b color-n2" for="people">Number of People</label>
           <img src="./images/icon-person.svg" alt="">
           <input name="people" id="people">
         </div>
-        <div>
-          Tip Amount
-          / person
-          Total
-          / person
-          Reset
+        <div class="result">
+          <div class="amount">
+            <div>
+              <h2>Tip Amount</h2>
+              <span>/ person</span>
+            </div>
+            <p>0.00</p>
+          </div>
+          <div class="total">
+            <div>
+              <h2>Total</h2>
+              <span>/ person</span>
+            </div>
+          </div>
+          <button>Reset</button>
         </div>
       </div>
     </form>
