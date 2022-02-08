@@ -10,10 +10,22 @@
   position: relative;
 }
 
+.calculator-input label {
+  font-size: 1rem;
+  letter-spacing: normal;
+}
+
 .calculator-input img {
   position: absolute;
   top: 40px;
   left: 16px;
+}
+
+.select-options {
+}
+
+.select-options legend {
+  font-size: 1rem;
 }
 
 .calculator-options {
