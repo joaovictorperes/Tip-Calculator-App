@@ -1,5 +1,4 @@
 body {
-  background-color: var(--color-n4);
   padding: 0px;
   margin: 0px;
 }
@@ -10,6 +9,10 @@ h3,
 p {
   padding: 0px;
   margin: 0px;
+}
+
+a {
+  text-decoration: none;
 }
 
 fieldset {
