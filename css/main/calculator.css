@@ -1,5 +1,7 @@
 main {
   background-color: var(--color-n4);
+  display: grid;
+  align-content: center;
 }
 
 .calculator-main {
