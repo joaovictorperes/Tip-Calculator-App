@@ -69,3 +69,41 @@
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.amount,
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount h2,
+.total h2 {
+  font-size: 1rem;
+}
+
+.amount span,
+.total span {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.amount + .total {
+  margin-top: 30px;
+}
+
+.button-reset {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.button-reset button {
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: var(--color-p1);
+  cursor: pointer;
+}
