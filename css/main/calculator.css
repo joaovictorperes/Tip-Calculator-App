@@ -31,25 +31,25 @@
 .calculator-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-items: center;
+
   align-items: center;
   gap: 12px;
   margin-top: 12px;
 }
 
-.calculator-options div {
-  display: block;
+.calculator-options label:not(label[for="custom"]) {
+  display: grid;
+
   background-color: var(--color-n1);
   color: var(--color-n6);
   border-radius: 4px;
-  width: 100%;
   max-width: 150px;
   box-sizing: border-box;
   padding: 10px 10px;
   text-align: center;
 }
 
-.calculator-options input:checked + div {
+.calculator-options input:checked + label {
   background-color: var(--color-p1);
   color: var(--color-n1);
 }
