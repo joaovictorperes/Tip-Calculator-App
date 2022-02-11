@@ -1,17 +1,27 @@
 const inputBill = document.querySelector('input[name="bill"]');
 const inputPeople = document.querySelector('input[name="people"]');
 
-function billValue() {
-  const value = document.querySelector('input[name="bill"]');
-  return value;
-}
+inputBill.addEventListener("keyup", () => {
+  const value = document.querySelector('input[name="bill"]').value;
+  const key = document.querySelector('input[name="people"]').value;
+  const amount = document.querySelector(".amount p");
+  const divider = Number(value) / Number(key);
 
-let vBill = inputBill.addEventListener("keydown", billValue);
-console.log(vBill);
+  amount.innerHTML = `$${Number(divider).toFixed(2)}`;
+});
 
-function peopleValue(event) {
-  const key = event.key;
-  return key;
-}
+inputPeople.addEventListener("keyup", () => {
+  const value = document.querySelector('input[name="bill"]').value;
+  const key = document.querySelector('input[name="people"]').value;
+  const amount = document.querySelector(".amount p");
+  const divider = Number(value) / Number(key);
 
-let vPeople = inputPeople.addEventListener("keydown", peopleValue);
+  amount.innerHTML = `$${Number(divider).toFixed(2)}`;
+});
+
+// const result = calc(value, key);
+
+// function calc(bill, people) {
+//
+//   return divider;
+// }
