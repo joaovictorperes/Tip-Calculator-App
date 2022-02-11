@@ -6,8 +6,11 @@ function calc() {
   const key = document.querySelector('input[name="people"]').value;
   const amount = document.querySelector(".amount p");
   const divider = Number(value) / Number(key);
+  console.log(key);
 
-  if (key) {
+  if (key === "0" || key === "") {
+    amount.innerHTML = `$0.00`;
+  } else if (key) {
     amount.innerHTML = `$${Number(divider).toFixed(2)}`;
   }
 }
