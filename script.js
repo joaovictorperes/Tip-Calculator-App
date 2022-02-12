@@ -3,11 +3,28 @@ const inputPeople = document.querySelector('input[name="people"]');
 const radios = Array.from(
   document.querySelectorAll("input[name='option'] + label")
 );
+const custom = document.querySelector("input[name='custom']");
 const totalOut = document.querySelector(".total p");
-
 let radioValue = 0;
 let divider = 0;
 
+//Prevent select input radio
+document.querySelector("input[name='custom']").onclick = () => {
+  let radioTeste = document.querySelector("input[type='radio']:checked");
+
+  if (radioTeste) {
+    radioTeste.checked = false;
+  }
+};
+
+//Input custom
+function inputCustom(event) {
+  event.target.value;
+}
+
+custom.addEventListener("keyup", inputCustom);
+
+//Radio inputs
 radios.forEach((radio) => {
   radio.addEventListener("click", radioSelect);
 });
@@ -31,15 +48,13 @@ function radioSelect(event) {
   }
 }
 
+//Bill and people inputs
 function calc() {
   const value = document.querySelector('input[name="bill"]').value;
   const key = document.querySelector('input[name="people"]').value;
   const total = document.querySelector(".total p");
 
   const default5 = document.querySelector("input[value='option5']");
-
-  //  else {
-  // }
 
   divider = Number(value) / Number(key);
 
