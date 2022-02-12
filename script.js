@@ -5,6 +5,7 @@ const radios = Array.from(
 );
 const custom = document.querySelector("input[name='custom']");
 const totalOut = document.querySelector(".total p");
+const amountOut = document.querySelector(".amount p");
 let radioValue = 0;
 let divider = 0;
 
@@ -19,6 +20,7 @@ document.querySelector("input[name='custom']").onclick = () => {
       console.log(custom.value);
       radioValue = custom.value;
       totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+      amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
     } else {
       radioValue = 0;
       totalOut.innerHTML = `$${divider.toFixed(2)}`;
@@ -31,6 +33,7 @@ function inputCustom(event) {
   const customValue = event.target.value;
   radioValue = customValue;
   totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+  amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
 }
 
 custom.addEventListener("keyup", inputCustom);
@@ -44,18 +47,23 @@ function radioSelect(event) {
   if (event.target.getAttribute("for") === "option5") {
     radioValue = 5;
     totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   } else if (event.target.getAttribute("for") === "option10") {
     radioValue = 10;
     totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   } else if (event.target.getAttribute("for") === "option15") {
     radioValue = 15;
     totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   } else if (event.target.getAttribute("for") === "option25") {
     radioValue = 25;
     totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   } else if (event.target.getAttribute("for") === "option50") {
     radioValue = 50;
     totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   }
 }
 
@@ -64,7 +72,7 @@ function calc() {
   const value = document.querySelector('input[name="bill"]').value;
   const key = document.querySelector('input[name="people"]').value;
   const total = document.querySelector(".total p");
-
+  const amount = document.querySelector(".amount p");
   const default5 = document.querySelector("input[value='option5']");
 
   divider = Number(value) / Number(key);
@@ -80,8 +88,12 @@ function calc() {
 
       if (default5.checked) {
         total.innerHTML = `$${Number(divider * 1.05).toFixed(2)}`;
+        amount.innerHTML = `$${Number(divider * 0.05).toFixed(2)}`;
       } else {
         total.innerHTML = `$${Number(divider * (radioValue / 100 + 1)).toFixed(
+          2
+        )}`;
+        amount.innerHTML = `$${Number(divider * (radioValue / 100)).toFixed(
           2
         )}`;
       }
