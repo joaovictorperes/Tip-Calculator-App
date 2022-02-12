@@ -14,8 +14,15 @@ document.querySelector("input[name='custom']").onclick = () => {
 
   if (radioTeste) {
     radioTeste.checked = false;
-    radioValue = 0;
-    totalOut.innerHTML = `$${divider.toFixed(2)}`;
+
+    if (custom.value !== "") {
+      console.log(custom.value);
+      radioValue = custom.value;
+      totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+    } else {
+      radioValue = 0;
+      totalOut.innerHTML = `$${divider.toFixed(2)}`;
+    }
   }
 };
 
