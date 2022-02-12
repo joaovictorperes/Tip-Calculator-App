@@ -14,12 +14,16 @@ document.querySelector("input[name='custom']").onclick = () => {
 
   if (radioTeste) {
     radioTeste.checked = false;
+    radioValue = 0;
+    totalOut.innerHTML = `$${divider.toFixed(2)}`;
   }
 };
 
 //Input custom
 function inputCustom(event) {
-  event.target.value;
+  const customValue = event.target.value;
+  radioValue = customValue;
+  totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
 }
 
 custom.addEventListener("keyup", inputCustom);
@@ -68,8 +72,6 @@ function calc() {
       inputPeople.style.color = "inherit";
 
       if (default5.checked) {
-        console.log("DEu certo");
-        console.log(default5);
         total.innerHTML = `$${Number(divider * 1.05).toFixed(2)}`;
       } else {
         total.innerHTML = `$${Number(divider * (radioValue / 100 + 1)).toFixed(
