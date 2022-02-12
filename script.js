@@ -1,37 +1,69 @@
 const inputBill = document.querySelector('input[name="bill"]');
 const inputPeople = document.querySelector('input[name="people"]');
-const label = document.querySelectorAll("input[name='option'] + label");
+const radios = Array.from(
+  document.querySelectorAll("input[name='option'] + label")
+);
+const totalOut = document.querySelector(".total p");
+
+let radioValue = 0;
+let divider = 0;
+
+radios.forEach((radio) => {
+  radio.addEventListener("click", radioSelect);
+});
+
+function radioSelect(event) {
+  if (event.target.getAttribute("for") === "option5") {
+    radioValue = 5;
+    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+  } else if (event.target.getAttribute("for") === "option10") {
+    radioValue = 10;
+    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+  } else if (event.target.getAttribute("for") === "option15") {
+    radioValue = 15;
+    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+  } else if (event.target.getAttribute("for") === "option25") {
+    radioValue = 25;
+    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+  } else if (event.target.getAttribute("for") === "option50") {
+    radioValue = 50;
+    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+  }
+}
 
 function calc() {
   const value = document.querySelector('input[name="bill"]').value;
   const key = document.querySelector('input[name="people"]').value;
-  const amount = document.querySelector(".amount p");
-  const divider = Number(value) / Number(key);
-  console.log(key);
+  const total = document.querySelector(".total p");
+
+  const default5 = document.querySelector("input[value='option5']");
+
+  //  else {
+  // }
+
+  divider = Number(value) / Number(key);
 
   if (key === "0" || key === "" || String(key).includes(".") === true) {
-    amount.innerHTML = `$0.00`;
+    total.innerHTML = `$0.00`;
   } else if (key) {
     if (String(key).includes("-") === true) {
       inputPeople.style.color = "red";
-      amount.innerHTML = `$0.00`;
+      total.innerHTML = `$0.00`;
     } else {
       inputPeople.style.color = "inherit";
-      amount.innerHTML = `$${Number(divider).toFixed(2)}`;
+
+      if (default5.checked) {
+        console.log("DEu certo");
+        console.log(default5);
+        total.innerHTML = `$${Number(divider * 1.05).toFixed(2)}`;
+      } else {
+        total.innerHTML = `$${Number(divider * (radioValue / 100 + 1)).toFixed(
+          2
+        )}`;
+      }
     }
   }
 }
 
 inputBill.addEventListener("keyup", calc);
 inputPeople.addEventListener("keyup", calc);
-
-function select(event) {
-  const option = event.target;
-  const value = option.getAttribute("for").slice(6);
-
-  console.log(value);
-}
-
-label.forEach((input) => {
-  input.addEventListener("click", select);
-});
