@@ -17,13 +17,13 @@ document.querySelector("input[name='custom']").onclick = () => {
     radioTeste.checked = false;
 
     if (custom.value !== "") {
-      console.log(custom.value);
       radioValue = custom.value;
       totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
       amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
     } else {
       radioValue = 0;
       totalOut.innerHTML = `$${divider.toFixed(2)}`;
+      amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
     }
   }
 };
@@ -77,25 +77,35 @@ function calc() {
 
   divider = Number(value) / Number(key);
 
-  if (key === "0" || key === "" || String(key).includes(".") === true) {
+  if (String(value).includes("-")) {
+    inputBill.style.color = "red";
     total.innerHTML = `$0.00`;
-  } else if (key) {
-    if (String(key).includes("-") === true) {
-      inputPeople.style.color = "red";
-      total.innerHTML = `$0.00`;
-    } else {
-      inputPeople.style.color = "inherit";
+    amount.innerHTML = `$0.00`;
+  } else {
+    inputBill.style.color = "inherit";
 
-      if (default5.checked) {
-        total.innerHTML = `$${Number(divider * 1.05).toFixed(2)}`;
-        amount.innerHTML = `$${Number(divider * 0.05).toFixed(2)}`;
+    if (key === "0" || key === "" || String(key).includes(".") === true) {
+      total.innerHTML = `$0.00`;
+      amount.innerHTML = "$0.00";
+    } else if (key) {
+      if (String(key).includes("-") === true) {
+        inputPeople.style.color = "red";
+        total.innerHTML = `$0.00`;
+        amount.innerHTML = `$0.00`;
       } else {
-        total.innerHTML = `$${Number(divider * (radioValue / 100 + 1)).toFixed(
-          2
-        )}`;
-        amount.innerHTML = `$${Number(divider * (radioValue / 100)).toFixed(
-          2
-        )}`;
+        inputPeople.style.color = "inherit";
+
+        if (default5.checked) {
+          total.innerHTML = `$${Number(divider * 1.05).toFixed(2)}`;
+          amount.innerHTML = `$${Number(divider * 0.05).toFixed(2)}`;
+        } else {
+          total.innerHTML = `$${Number(
+            divider * (radioValue / 100 + 1)
+          ).toFixed(2)}`;
+          amount.innerHTML = `$${Number(divider * (radioValue / 100)).toFixed(
+            2
+          )}`;
+        }
       }
     }
   }
