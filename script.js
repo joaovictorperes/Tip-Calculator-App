@@ -32,8 +32,18 @@ document.querySelector("input[name='custom']").onclick = () => {
 function inputCustom(event) {
   const customValue = event.target.value;
   radioValue = customValue;
-  totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-  amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+
+  if (String(customValue).includes("-")) {
+    custom.style.color = "red";
+
+    totalOut.innerHTML = `$0.00`;
+    amountOut.innerHTML = `$0.00`;
+  } else {
+    custom.style.color = "inherit";
+
+    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+  }
 }
 
 custom.addEventListener("keyup", inputCustom);
