@@ -56,25 +56,18 @@ radios.forEach((radio) => {
 function radioSelect(event) {
   if (event.target.getAttribute("for") === "option5") {
     radioValue = 5;
-    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   } else if (event.target.getAttribute("for") === "option10") {
     radioValue = 10;
-    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   } else if (event.target.getAttribute("for") === "option15") {
     radioValue = 15;
-    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   } else if (event.target.getAttribute("for") === "option25") {
     radioValue = 25;
-    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   } else if (event.target.getAttribute("for") === "option50") {
     radioValue = 50;
-    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   }
+
+  totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+  amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
 }
 
 //Bill and people inputs
@@ -85,24 +78,32 @@ function calc() {
   const amount = document.querySelector(".amount p");
   const default5 = document.querySelector("input[value='option5']");
 
-  divider = Number(value) / Number(key);
-
   if (String(value).includes("-")) {
     inputBill.style.color = "red";
     total.innerHTML = `$0.00`;
     amount.innerHTML = `$0.00`;
+
+    if (String(key).includes("-") === true) {
+      inputPeople.style.color = "red";
+      total.innerHTML = `$0.00`;
+      amount.innerHTML = `$0.00`;
+    } else {
+      inputPeople.style.color = "inherit";
+    }
   } else {
     inputBill.style.color = "inherit";
 
     if (key === "0" || key === "" || String(key).includes(".") === true) {
       total.innerHTML = `$0.00`;
       amount.innerHTML = "$0.00";
+      divider = 0;
     } else if (key) {
       if (String(key).includes("-") === true) {
         inputPeople.style.color = "red";
         total.innerHTML = `$0.00`;
         amount.innerHTML = `$0.00`;
       } else {
+        divider = Number(value) / Number(key);
         inputPeople.style.color = "inherit";
 
         if (default5.checked) {
