@@ -3,9 +3,11 @@ const inputPeople = document.querySelector('input[name="people"]');
 const radios = Array.from(
   document.querySelectorAll("input[name='option'] + label")
 );
-const custom = document.querySelector("input[name='custom']");
 const totalOut = document.querySelector(".total p");
 const amountOut = document.querySelector(".amount p");
+const custom = document.querySelector("input[name='custom']");
+const reset = document.querySelector(".button-reset");
+
 let radioValue = 0;
 let divider = 0;
 
@@ -124,3 +126,16 @@ function calc() {
 
 inputBill.addEventListener("keyup", calc);
 inputPeople.addEventListener("keyup", calc);
+
+function resetButton(event) {
+  event.preventDefault();
+  radioValue = 0;
+  divider = 0;
+  inputBill.value = 0;
+  inputPeople.value = 0;
+  totalOut.innerHTML = `$0.00`;
+  amountOut.innerHTML = `$0.00`;
+  custom.value = "";
+}
+
+reset.addEventListener("click", resetButton);
