@@ -2,6 +2,9 @@ body {
   padding: 0px;
   margin: 0px;
   height: 100vh;
+  display: grid;
+  align-items: center;
+  background-color: var(--color-n4);
 }
 
 h1,

@@ -2,12 +2,14 @@
   font-size: 11px;
   text-align: center;
   background-color: var(--color-n6);
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 40px;
-  height: auto;
 }
 
 .attribution a {
-  color: var(--color-p1);
-  text-shadow: 0px 0.8px var(--color-n1);
+  color: var(--color-n5);
+  background-color: var(--color-n1);
+  display: inline-block;
+  padding: 5px;
+  margin-top: 5px;
 }
