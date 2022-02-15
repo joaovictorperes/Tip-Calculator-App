@@ -28,54 +28,53 @@
   <main>
     <form action="/" autocomplete="off">
       <div class="calculator-main">
-        <div class="calculator-input container">
-          <label class="font-b color-n2" for="bill">Bill</label>
-          <img src="./images/icon-dollar.svg" alt="">
-          <input type="number" name="bill" id="bill">
-        </div>
-        <fieldset class="select-options container">
-          <legend class="font-b color-n2">Select Tip %</legend>
-          <div class="calculator-options font-b">
-            <input type="radio" name="option" value="option5" id="option5" checked>
-            <label for="option5">5%</label>
-
-            <input type="radio" name="option" value="option10" id="option10">
-            <label for="option10">10%</label>
-
-            <input type="radio" name="option" value="option15" id="option15">
-            <label for="option15">15%</label>
-
-            <input type="radio" name="option" value="option25" id="option25">
-            <label for="option25">25%</label>
-
-            <input type="radio" name="option" value="option50" id="option50">
-            <label for="option50">50%</label>
-
-            <div class="input-custom">
-              <label for="custom"></label>
-              <input type="number" name="custom" id="custom" placeholder="Custom">
-            </div>
+        <div class="calculator-first">
+          <div class="calculator-input container">
+            <label class="font-b color-n2" for="bill">Bill</label>
+            <img src="./images/icon-dollar.svg" alt="">
+            <input type="number" name="bill" id="bill">
           </div>
-        </fieldset>
-        <div class="calculator-input container">
-          <label class="font-b color-n2" for="people">Number of People</label>
-          <img src="./images/icon-person.svg" alt="">
-          <input type="number" name="people" id="people" min="0" step="1" />
+          <fieldset class="select-options container">
+            <legend class="font-b color-n2">Select Tip %</legend>
+            <div class="calculator-options font-b">
+              <input type="radio" name="option" value="option5" id="option5" checked>
+              <label for="option5">5%</label>
+              <input type="radio" name="option" value="option10" id="option10">
+              <label for="option10">10%</label>
+              <input type="radio" name="option" value="option15" id="option15">
+              <label for="option15">15%</label>
+              <input type="radio" name="option" value="option25" id="option25">
+              <label for="option25">25%</label>
+              <input type="radio" name="option" value="option50" id="option50">
+              <label for="option50">50%</label>
+              <div class="input-custom">
+                <label for="custom"></label>
+                <input type="number" name="custom" id="custom" placeholder="Custom">
+              </div>
+            </div>
+          </fieldset>
+          <div class="calculator-input container">
+            <label class="font-b color-n2" for="people">Number of People</label>
+            <img src="./images/icon-person.svg" alt="">
+            <input type="number" name="people" id="people" min="0" step="1" />
+          </div>
         </div>
         <div class="result">
-          <div class="amount">
-            <div>
-              <h2 class="color-n6 font-b">Tip Amount</h2>
-              <span class="color-n3 font-b">/ person</span>
+          <div class="result-text">
+            <div class="amount">
+              <div>
+                <h2 class="color-n6 font-b">Tip Amount</h2>
+                <span class="color-n3 font-b">/ person</span>
+              </div>
+              <p class="color-p1 font-b">$0.00</p>
             </div>
-            <p class="color-p1 font-b">$0.00</p>
-          </div>
-          <div class="total">
-            <div>
-              <h2 class="color-n6 font-b">Total</h2>
-              <span class="color-n3 font-b">/ person</span>
+            <div class="total">
+              <div>
+                <h2 class="color-n6 font-b">Total</h2>
+                <span class="color-n3 font-b">/ person</span>
+              </div>
+              <p class="color-p1 font-b">$0.00</p>
             </div>
-            <p class="color-p1 font-b">$0.00</p>
           </div>
           <div class="button-reset">
             <button type="button" class="color-n1 font-b">Reset</button>

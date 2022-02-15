@@ -30,3 +30,9 @@ input:focus {
 .container {
   padding: 0px 30px;
 }
+
+@media (min-width: 701px) {
+  .container {
+    padding: 0px;
+  }
+}
