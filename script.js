@@ -7,6 +7,8 @@ const totalOut = document.querySelector(".total p");
 const amountOut = document.querySelector(".amount p");
 const custom = document.querySelector("input[name='custom']");
 const reset = document.querySelector(".button-reset");
+const span = document.createElement("span");
+span.style.color = "red";
 
 let radioValue = 0;
 let divider = 0;
@@ -81,7 +83,12 @@ function calc() {
   const default5 = document.querySelector("input[value='option5']");
 
   if (String(value).includes("-")) {
+    const labelBill = document.querySelector(".label-bill");
+    span.innerHTML = "Can't be negative";
+    labelBill.appendChild(span);
     inputBill.style.color = "red";
+    inputBill.style.border = "solid 3px red";
+
     total.innerHTML = `$0.00`;
     amount.innerHTML = `$0.00`;
 
@@ -92,7 +99,14 @@ function calc() {
     } else {
       inputPeople.style.color = "inherit";
     }
+  } else if (value === "0") {
+    const labelBill = document.querySelector(".label-bill");
+    span.innerHTML = "Can't be zero";
+    labelBill.appendChild(span);
+    inputBill.style.color = "red";
+    inputBill.style.border = "solid 3px red";
   } else {
+    span.innerHTML = "";
     inputBill.style.color = "inherit";
 
     if (key === "0" || key === "" || String(key).includes(".") === true) {

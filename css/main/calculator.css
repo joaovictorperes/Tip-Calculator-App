@@ -21,11 +21,13 @@
 .calculator-input label {
   font-size: 1rem;
   letter-spacing: normal;
+  display: flex;
+  justify-content: space-between;
 }
 
 .calculator-input img {
   position: absolute;
-  top: 40px;
+  top: 38px;
   left: 46px;
 }
 
