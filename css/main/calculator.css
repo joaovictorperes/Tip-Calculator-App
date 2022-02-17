@@ -59,6 +59,10 @@
   color: var(--color-n1);
 }
 
+.calculator-input .zero-negative:focus {
+  border: solid 3px red;
+}
+
 .calculator-options .input-custom {
   background: none;
   padding: 0px;

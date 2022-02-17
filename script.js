@@ -87,7 +87,7 @@ function calc() {
     span.innerHTML = "Can't be negative";
     labelBill.appendChild(span);
     inputBill.style.color = "red";
-    inputBill.style.border = "solid 3px red";
+    inputBill.classList.add("zero-negative");
 
     total.innerHTML = `$0.00`;
     amount.innerHTML = `$0.00`;
@@ -104,10 +104,11 @@ function calc() {
     span.innerHTML = "Can't be zero";
     labelBill.appendChild(span);
     inputBill.style.color = "red";
-    inputBill.style.border = "solid 3px red";
+    inputBill.classList.add("zero-negative");
   } else {
     span.innerHTML = "";
     inputBill.style.color = "inherit";
+    inputBill.classList.remove("zero-negative");
 
     if (key === "0" || key === "" || String(key).includes(".") === true) {
       total.innerHTML = `$0.00`;
