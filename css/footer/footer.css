@@ -14,14 +14,14 @@
   margin-top: 5px;
 }
 
-@media (min-width: 451px) and (max-width: 700px) {
+@media (min-width: 451px) and (max-width: 950px) {
   .attribution {
     border-radius: 0px 0px 20px 20px;
     margin-bottom: 20px;
   }
 }
 
-@media (min-width: 701px) {
+@media (min-width: 951px) {
   .attribution {
     background: none;
   }
