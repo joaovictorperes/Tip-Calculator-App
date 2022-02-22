@@ -118,6 +118,10 @@ function calc() {
     inputBill.style.color = "inherit";
     inputBill.classList.remove("zero-negative");
 
+    span2.innerHTML = "";
+    inputPeople.style.color = "inherit";
+    inputPeople.classList.remove("zero-negative");
+
     if (key === "0" || key === "" || String(key).includes(".")) {
       total.innerHTML = `$0.00`;
       amount.innerHTML = "$0.00";
@@ -133,7 +137,7 @@ function calc() {
         total.innerHTML = `$0.00`;
         amount.innerHTML = `$0.00`;
       } else {
-        span.innerHTML = "";
+        span2.innerHTML = "";
         inputPeople.style.color = "inherit";
         inputPeople.classList.remove("zero-negative");
         divider = Number(value) / Number(key);
