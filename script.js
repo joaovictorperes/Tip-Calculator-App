@@ -7,8 +7,10 @@ const totalOut = document.querySelector(".total p");
 const amountOut = document.querySelector(".amount p");
 const custom = document.querySelector("input[name='custom']");
 const reset = document.querySelector(".button-reset");
-const span = document.createElement("span");
-span.style.color = "red";
+const span1 = document.createElement("span");
+const span2 = document.createElement("span");
+span1.style.color = "red";
+span2.style.color = "red";
 
 let radioValue = 0;
 let divider = 0;
@@ -84,44 +86,57 @@ function calc() {
 
   if (String(value).includes("-")) {
     const labelBill = document.querySelector(".label-bill");
-    span.innerHTML = "Can't be negative";
-    labelBill.appendChild(span);
+    span1.innerHTML = "Can't be negative";
+    labelBill.appendChild(span1);
     inputBill.style.color = "red";
     inputBill.classList.add("zero-negative");
 
     total.innerHTML = `$0.00`;
     amount.innerHTML = `$0.00`;
 
-    if (String(key).includes("-") === true) {
+    if (String(key).includes("-")) {
+      const labelPeople = document.querySelector(".label-people");
       inputPeople.style.color = "red";
+      span2.innerHTML = "Can't be negative";
+      labelPeople.appendChild(span2);
+      inputPeople.classList.add("zero-negative");
       total.innerHTML = `$0.00`;
       amount.innerHTML = `$0.00`;
     } else {
       inputPeople.style.color = "inherit";
+      inputPeople.classList.remove("zero-negative");
+      span2.innerHTML = "";
     }
   } else if (value === "0") {
     const labelBill = document.querySelector(".label-bill");
-    span.innerHTML = "Can't be zero";
-    labelBill.appendChild(span);
+    span1.innerHTML = "Can't be zero";
+    labelBill.appendChild(span1);
     inputBill.style.color = "red";
     inputBill.classList.add("zero-negative");
   } else {
-    span.innerHTML = "";
+    span1.innerHTML = "";
     inputBill.style.color = "inherit";
     inputBill.classList.remove("zero-negative");
 
-    if (key === "0" || key === "" || String(key).includes(".") === true) {
+    if (key === "0" || key === "" || String(key).includes(".")) {
       total.innerHTML = `$0.00`;
       amount.innerHTML = "$0.00";
       divider = 0;
     } else if (key) {
-      if (String(key).includes("-") === true) {
+      if (String(key).includes("-")) {
+        const labelPeople = document.querySelector(".label-people");
+        span2.innerHTML = "Can't be negative";
+        labelPeople.appendChild(span2);
         inputPeople.style.color = "red";
+        inputPeople.classList.add("zero-negative");
+
         total.innerHTML = `$0.00`;
         amount.innerHTML = `$0.00`;
       } else {
-        divider = Number(value) / Number(key);
+        span.innerHTML = "";
         inputPeople.style.color = "inherit";
+        inputPeople.classList.remove("zero-negative");
+        divider = Number(value) / Number(key);
 
         if (default5.checked) {
           total.innerHTML = `$${Number(divider * 1.05).toFixed(2)}`;
