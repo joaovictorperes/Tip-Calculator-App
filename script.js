@@ -83,6 +83,7 @@ function calc() {
   const total = document.querySelector(".total p");
   const amount = document.querySelector(".amount p");
   const default5 = document.querySelector("input[value='option5']");
+  const labelPeople = document.querySelector(".label-people");
 
   if (String(value).includes("-")) {
     const labelBill = document.querySelector(".label-bill");
@@ -126,9 +127,14 @@ function calc() {
       total.innerHTML = `$0.00`;
       amount.innerHTML = "$0.00";
       divider = 0;
+      if (key === "0") {
+        span2.innerHTML = "Can't be zero";
+        labelPeople.appendChild(span2);
+        inputPeople.style.color = "red";
+        inputPeople.classList.add("zero-negative");
+      }
     } else if (key) {
       if (String(key).includes("-")) {
-        const labelPeople = document.querySelector(".label-people");
         span2.innerHTML = "Can't be negative";
         labelPeople.appendChild(span2);
         inputPeople.style.color = "red";
