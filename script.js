@@ -78,8 +78,8 @@ function radioSelect(event) {
 
 //Bill and people inputs
 function calc() {
-  const value = document.querySelector('input[name="bill"]').value;
-  const key = document.querySelector('input[name="people"]').value;
+  let value = document.querySelector('input[name="bill"]').value;
+  let key = document.querySelector('input[name="people"]').value;
   const total = document.querySelector(".total p");
   const amount = document.querySelector(".amount p");
   const default5 = document.querySelector("input[value='option5']");
@@ -177,22 +177,29 @@ function calc() {
       }
     }
   }
+
+  const resetRemove = document.querySelector(".button-reset button");
+  if (Number(value) > 0 && Number(key) > 0) {
+    resetRemove.removeAttribute("disabled");
+    resetRemove.classList.remove("blocked");
+  } else {
+    resetRemove.setAttribute("disabled", "");
+    resetRemove.classList.add("blocked");
+  }
 }
 
 inputBill.addEventListener("keyup", calc);
 inputPeople.addEventListener("keyup", calc);
 
-// if (Number(inputBill) > 0 && Numner(inputPeople > 0)) {
-//   function resetButton(event) {
-//     event.preventDefault();
-//     radioValue = 0;
-//     divider = 0;
-//     inputBill.value = 0;
-//     inputPeople.value = 0;
-//     totalOut.innerHTML = `$0.00`;
-//     amountOut.innerHTML = `$0.00`;
-//     custom.value = "";
-//   }
+function resetButton(event) {
+  event.preventDefault();
+  radioValue = 0;
+  divider = 0;
+  inputBill.value = 0;
+  inputPeople.value = 0;
+  totalOut.innerHTML = `$0.00`;
+  amountOut.innerHTML = `$0.00`;
+  custom.value = "";
+}
 
-//   reset.addEventListener("click", resetButton);
-// }
+reset.addEventListener("click", resetButton);

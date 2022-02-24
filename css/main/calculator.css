@@ -135,6 +135,12 @@
   background-color: var(--color-n4);
 }
 
+.button-reset button.blocked {
+  background-color: rgba(84, 221, 226, 0.219);
+  color: var(--color-n1);
+  cursor: not-allowed;
+}
+
 @media (min-width: 350px) and (max-width: 951px) {
   .calculator-options label:not(label[for="custom"]) {
     max-width: 200px;
