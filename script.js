@@ -114,6 +114,21 @@ function calc() {
     labelBill.appendChild(span1);
     inputBill.style.color = "red";
     inputBill.classList.add("zero-negative");
+    if (key === "0") {
+      span2.innerHTML = "Can't be zero";
+      labelPeople.appendChild(span2);
+      inputPeople.style.color = "red";
+      inputPeople.classList.add("zero-negative");
+    } else if (String(key).includes("-")) {
+      span2.innerHTML = "Can't be negative";
+      labelPeople.appendChild(span2);
+      inputPeople.style.color = "red";
+      inputPeople.classList.add("zero-negative");
+    } else {
+      span2.innerHTML = "";
+      inputPeople.style.color = "inherit";
+      inputPeople.classList.remove("zero-negative");
+    }
   } else {
     span1.innerHTML = "";
     inputBill.style.color = "inherit";
@@ -167,15 +182,17 @@ function calc() {
 inputBill.addEventListener("keyup", calc);
 inputPeople.addEventListener("keyup", calc);
 
-function resetButton(event) {
-  event.preventDefault();
-  radioValue = 0;
-  divider = 0;
-  inputBill.value = 0;
-  inputPeople.value = 0;
-  totalOut.innerHTML = `$0.00`;
-  amountOut.innerHTML = `$0.00`;
-  custom.value = "";
-}
+// if (Number(inputBill) > 0 && Numner(inputPeople > 0)) {
+//   function resetButton(event) {
+//     event.preventDefault();
+//     radioValue = 0;
+//     divider = 0;
+//     inputBill.value = 0;
+//     inputPeople.value = 0;
+//     totalOut.innerHTML = `$0.00`;
+//     amountOut.innerHTML = `$0.00`;
+//     custom.value = "";
+//   }
 
-reset.addEventListener("click", resetButton);
+//   reset.addEventListener("click", resetButton);
+// }
