@@ -11,6 +11,7 @@ input {
   margin-top: 8px;
   text-align: right;
   font: var(--font-b);
+  cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,
