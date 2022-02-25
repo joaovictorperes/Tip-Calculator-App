@@ -9,6 +9,8 @@ const custom = document.querySelector("input[name='custom']");
 const reset = document.querySelector(".button-reset");
 const span1 = document.createElement("span");
 const span2 = document.createElement("span");
+let value;
+let key;
 span1.style.color = "red";
 span2.style.color = "red";
 
@@ -22,14 +24,20 @@ document.querySelector("input[name='custom']").onclick = () => {
   if (radioTeste) {
     radioTeste.checked = false;
 
-    if (custom.value !== "") {
-      radioValue = custom.value;
-      totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-      amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
-    } else {
-      radioValue = 0;
-      totalOut.innerHTML = `$${divider.toFixed(2)}`;
-      amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+    if (value !== "" && Number(value) > 0 && key !== "" && Number(key) > 0) {
+      if (custom.value !== "") {
+        radioValue = custom.value;
+
+        totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(
+          2
+        )}`;
+        amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+      } else {
+        radioValue = 0;
+
+        totalOut.innerHTML = `$${divider.toFixed(2)}`;
+        amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+      }
     }
   }
 };
@@ -37,9 +45,9 @@ document.querySelector("input[name='custom']").onclick = () => {
 //Input custom
 function inputCustom(event) {
   const customValue = event.target.value;
-  radioValue = customValue;
+  radioValue = Number(customValue);
 
-  if (String(customValue).includes("-")) {
+  if (customValue < 0) {
     custom.style.color = "red";
 
     totalOut.innerHTML = `$0.00`;
@@ -47,8 +55,10 @@ function inputCustom(event) {
   } else {
     custom.style.color = "inherit";
 
-    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+    if (value !== "" && Number(value) > 0 && key !== "" && Number(key) > 0) {
+      totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+      amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+    }
   }
 }
 
@@ -72,114 +82,84 @@ function radioSelect(event) {
     radioValue = 50;
   }
 
-  totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-  amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+  if (value !== "" && Number(value) > 0 && key !== "" && Number(key) > 0) {
+    totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+    amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+  }
 }
 
 //Bill and people inputs
 function calc() {
-  let value = document.querySelector('input[name="bill"]').value;
-  let key = document.querySelector('input[name="people"]').value;
+  value = document.querySelector('input[name="bill"]').value;
+  key = document.querySelector('input[name="people"]').value;
   const total = document.querySelector(".total p");
   const amount = document.querySelector(".amount p");
   const default5 = document.querySelector("input[value='option5']");
-  const labelPeople = document.querySelector(".label-people");
 
-  if (String(value).includes("-")) {
-    const labelBill = document.querySelector(".label-bill");
-    span1.innerHTML = "Can't be negative";
-    labelBill.appendChild(span1);
-    inputBill.style.color = "red";
-    inputBill.classList.add("zero-negative");
+  if (value !== "") {
+    value = Number(value);
 
-    total.innerHTML = `$0.00`;
-    amount.innerHTML = `$0.00`;
-
-    if (String(key).includes("-")) {
-      const labelPeople = document.querySelector(".label-people");
-      inputPeople.style.color = "red";
-      span2.innerHTML = "Can't be negative";
-      labelPeople.appendChild(span2);
-      inputPeople.classList.add("zero-negative");
-      total.innerHTML = `$0.00`;
-      amount.innerHTML = `$0.00`;
-    } else {
-      inputPeople.style.color = "inherit";
-      inputPeople.classList.remove("zero-negative");
-      span2.innerHTML = "";
-    }
-  } else if (value === "0") {
-    const labelBill = document.querySelector(".label-bill");
-    span1.innerHTML = "Can't be zero";
-    labelBill.appendChild(span1);
-    inputBill.style.color = "red";
-    inputBill.classList.add("zero-negative");
-    if (key === "0") {
-      span2.innerHTML = "Can't be zero";
-      labelPeople.appendChild(span2);
-      inputPeople.style.color = "red";
-      inputPeople.classList.add("zero-negative");
-    } else if (String(key).includes("-")) {
-      span2.innerHTML = "Can't be negative";
-      labelPeople.appendChild(span2);
-      inputPeople.style.color = "red";
-      inputPeople.classList.add("zero-negative");
-    } else {
-      span2.innerHTML = "";
-      inputPeople.style.color = "inherit";
-      inputPeople.classList.remove("zero-negative");
+    if (value < 0) {
+      const labelBill = document.querySelector(".label-bill");
+      span1.innerHTML = "Can't be negative";
+      labelBill.appendChild(span1);
+      inputBill.style.color = "red";
+      inputBill.classList.add("zero-negative");
+    } else if (value === 0) {
+      const labelBill = document.querySelector(".label-bill");
+      span1.innerHTML = "Can't be zero";
+      labelBill.appendChild(span1);
+      inputBill.style.color = "red";
+      inputBill.classList.add("zero-negative");
     }
   } else {
     span1.innerHTML = "";
     inputBill.style.color = "inherit";
     inputBill.classList.remove("zero-negative");
 
+    total.innerHTML = `$0.00`;
+    amount.innerHTML = `$0.00`;
+  }
+
+  if (key !== "") {
+    key = Number(key);
+
+    if (key < 0) {
+      const labelPeople = document.querySelector(".label-people");
+      span2.innerHTML = "Can't be negative";
+      labelPeople.appendChild(span2);
+      inputPeople.style.color = "red";
+      inputPeople.classList.add("zero-negative");
+    } else if (key === 0) {
+      const labelPeople = document.querySelector(".label-people");
+      span2.innerHTML = "Can't be zero";
+      labelPeople.appendChild(span2);
+      inputPeople.style.color = "red";
+      inputPeople.classList.add("zero-negative");
+    }
+  } else {
     span2.innerHTML = "";
     inputPeople.style.color = "inherit";
     inputPeople.classList.remove("zero-negative");
 
-    if (key === "0" || key === "" || String(key).includes(".")) {
-      total.innerHTML = `$0.00`;
-      amount.innerHTML = "$0.00";
-      divider = 0;
-      if (key === "0") {
-        span2.innerHTML = "Can't be zero";
-        labelPeople.appendChild(span2);
-        inputPeople.style.color = "red";
-        inputPeople.classList.add("zero-negative");
-      }
-    } else if (key) {
-      if (String(key).includes("-")) {
-        span2.innerHTML = "Can't be negative";
-        labelPeople.appendChild(span2);
-        inputPeople.style.color = "red";
-        inputPeople.classList.add("zero-negative");
+    total.innerHTML = `$0.00`;
+    amount.innerHTML = `$0.00`;
+  }
 
-        total.innerHTML = `$0.00`;
-        amount.innerHTML = `$0.00`;
-      } else {
-        span2.innerHTML = "";
-        inputPeople.style.color = "inherit";
-        inputPeople.classList.remove("zero-negative");
-        divider = Number(value) / Number(key);
+  if (value > 0 && key > 0) {
+    divider = value / key;
 
-        if (default5.checked) {
-          total.innerHTML = `$${Number(divider * 1.05).toFixed(2)}`;
-          amount.innerHTML = `$${Number(divider * 0.05).toFixed(2)}`;
-        } else {
-          total.innerHTML = `$${Number(
-            divider * (radioValue / 100 + 1)
-          ).toFixed(2)}`;
-          amount.innerHTML = `$${Number(divider * (radioValue / 100)).toFixed(
-            2
-          )}`;
-        }
-      }
+    if (default5.checked) {
+      total.innerHTML = `$${(divider * 1.05).toFixed(2)}`;
+      amount.innerHTML = `$${(divider * 0.05).toFixed(2)}`;
+    } else {
+      total.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+      amount.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
     }
   }
 
   const resetRemove = document.querySelector(".button-reset button");
-  if (Number(value) > 0 && Number(key) > 0) {
+  if (value > 0 && key > 0) {
     resetRemove.removeAttribute("disabled");
     resetRemove.classList.remove("blocked");
   } else {
