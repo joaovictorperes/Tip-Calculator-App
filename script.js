@@ -149,12 +149,14 @@ function calc() {
   if (value > 0 && key > 0) {
     divider = value / key;
 
-    if (default5.checked) {
-      total.innerHTML = `$${(divider * 1.05).toFixed(2)}`;
-      amount.innerHTML = `$${(divider * 0.05).toFixed(2)}`;
-    } else {
-      total.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
-      amount.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+    if (Number(custom.value) > 0 || custom.value === "") {
+      if (default5.checked) {
+        total.innerHTML = `$${(divider * 1.05).toFixed(2)}`;
+        amount.innerHTML = `$${(divider * 0.05).toFixed(2)}`;
+      } else {
+        total.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
+        amount.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
+      }
     }
   }
 
