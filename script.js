@@ -175,6 +175,7 @@ inputBill.addEventListener("keyup", calc);
 inputPeople.addEventListener("keyup", calc);
 
 function resetButton(event) {
+  const default1 = document.querySelector("input[value='option5']");
   event.preventDefault();
   radioValue = 0;
   divider = 0;
@@ -183,6 +184,7 @@ function resetButton(event) {
   totalOut.innerHTML = `$0.00`;
   amountOut.innerHTML = `$0.00`;
   custom.value = "";
+  default1.checked = true;
 }
 
 reset.addEventListener("click", resetButton);
