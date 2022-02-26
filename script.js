@@ -7,6 +7,7 @@ const totalOut = document.querySelector(".total p");
 const amountOut = document.querySelector(".amount p");
 const custom = document.querySelector("input[name='custom']");
 const reset = document.querySelector(".button-reset");
+const resetRemove = document.querySelector(".button-reset button");
 const span1 = document.createElement("span");
 const span2 = document.createElement("span");
 let value;
@@ -48,6 +49,8 @@ function inputCustom(event) {
   radioValue = Number(customValue);
 
   if (customValue < 0) {
+    resetRemove.setAttribute("disabled", "");
+    resetRemove.classList.add("blocked");
     custom.style.color = "red";
 
     totalOut.innerHTML = `$0.00`;
@@ -56,6 +59,8 @@ function inputCustom(event) {
     custom.style.color = "inherit";
 
     if (value !== "" && Number(value) > 0 && key !== "" && Number(key) > 0) {
+      resetRemove.removeAttribute("disabled");
+      resetRemove.classList.remove("blocked");
       totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
       amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
     }
@@ -150,6 +155,8 @@ function calc() {
     divider = value / key;
 
     if (Number(custom.value) > 0 || custom.value === "") {
+      resetRemove.removeAttribute("disabled");
+      resetRemove.classList.remove("blocked");
       if (default5.checked) {
         total.innerHTML = `$${(divider * 1.05).toFixed(2)}`;
         amount.innerHTML = `$${(divider * 0.05).toFixed(2)}`;
@@ -158,12 +165,6 @@ function calc() {
         amount.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
       }
     }
-  }
-
-  const resetRemove = document.querySelector(".button-reset button");
-  if (value > 0 && key > 0) {
-    resetRemove.removeAttribute("disabled");
-    resetRemove.classList.remove("blocked");
   } else {
     resetRemove.setAttribute("disabled", "");
     resetRemove.classList.add("blocked");
