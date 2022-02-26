@@ -100,18 +100,18 @@ function calc() {
   const total = document.querySelector(".total p");
   const amount = document.querySelector(".amount p");
   const default5 = document.querySelector("input[value='option5']");
+  const labelBill = document.querySelector(".label-bill");
+  const labelPeople = document.querySelector(".label-people");
 
   if (value !== "") {
     value = Number(value);
 
     if (value < 0) {
-      const labelBill = document.querySelector(".label-bill");
       span1.innerHTML = "Can't be negative";
       labelBill.appendChild(span1);
       inputBill.style.color = "red";
       inputBill.classList.add("zero-negative");
     } else if (value === 0) {
-      const labelBill = document.querySelector(".label-bill");
       span1.innerHTML = "Can't be zero";
       labelBill.appendChild(span1);
       inputBill.style.color = "red";
@@ -136,19 +136,16 @@ function calc() {
   if (key !== "") {
     key = Number(key);
     if (key < 0) {
-      const labelPeople = document.querySelector(".label-people");
       span2.innerHTML = "Can't be negative";
       labelPeople.appendChild(span2);
       inputPeople.style.color = "red";
       inputPeople.classList.add("zero-negative");
     } else if (key === 0) {
-      const labelPeople = document.querySelector(".label-people");
       span2.innerHTML = "Can't be zero";
       labelPeople.appendChild(span2);
       inputPeople.style.color = "red";
       inputPeople.classList.add("zero-negative");
     } else if (Number.isInteger(key) === false) {
-      const labelPeople = document.querySelector(".label-people");
       span2.innerHTML = "Can't be flot";
       labelPeople.appendChild(span2);
       inputPeople.style.color = "red";
@@ -191,7 +188,7 @@ inputBill.addEventListener("keyup", calc);
 inputPeople.addEventListener("keyup", calc);
 
 function resetButton(event) {
-  const default1 = document.querySelector("input[value='option5']");
+  const default5 = document.querySelector("input[value='option5']");
   event.preventDefault();
   radioValue = 0;
   divider = 0;
@@ -200,7 +197,7 @@ function resetButton(event) {
   totalOut.innerHTML = `$0.00`;
   amountOut.innerHTML = `$0.00`;
   custom.value = "";
-  default1.checked = true;
+  default5.checked = true;
   resetRemove.setAttribute("disabled", "");
   resetRemove.classList.add("blocked");
 }
