@@ -116,6 +116,13 @@ function calc() {
       labelBill.appendChild(span1);
       inputBill.style.color = "red";
       inputBill.classList.add("zero-negative");
+    } else {
+      span1.innerHTML = "";
+      inputBill.style.color = "inherit";
+      inputBill.classList.remove("zero-negative");
+
+      total.innerHTML = `$0.00`;
+      amount.innerHTML = `$0.00`;
     }
   } else {
     span1.innerHTML = "";
@@ -128,7 +135,6 @@ function calc() {
 
   if (key !== "") {
     key = Number(key);
-
     if (key < 0) {
       const labelPeople = document.querySelector(".label-people");
       span2.innerHTML = "Can't be negative";
@@ -141,6 +147,16 @@ function calc() {
       labelPeople.appendChild(span2);
       inputPeople.style.color = "red";
       inputPeople.classList.add("zero-negative");
+    } else if (Number.isInteger(key) === false) {
+      const labelPeople = document.querySelector(".label-people");
+      span2.innerHTML = "Can't be flot";
+      labelPeople.appendChild(span2);
+      inputPeople.style.color = "red";
+      inputPeople.classList.add("zero-negative");
+    } else {
+      span2.innerHTML = "";
+      inputPeople.style.color = "inherit";
+      inputPeople.classList.remove("zero-negative");
     }
   } else {
     span2.innerHTML = "";
@@ -151,7 +167,7 @@ function calc() {
     amount.innerHTML = `$0.00`;
   }
 
-  if (value > 0 && key > 0) {
+  if (value > 0 && key > 0 && Number.isInteger(key) === true) {
     divider = value / key;
 
     if (Number(custom.value) > 0 || custom.value === "") {
@@ -185,6 +201,8 @@ function resetButton(event) {
   amountOut.innerHTML = `$0.00`;
   custom.value = "";
   default1.checked = true;
+  resetRemove.setAttribute("disabled", "");
+  resetRemove.classList.add("blocked");
 }
 
 reset.addEventListener("click", resetButton);
