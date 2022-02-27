@@ -25,6 +25,7 @@
 .calculator-input label {
   font-size: 1.1rem;
   letter-spacing: normal;
+  padding-bottom: 8px;
   display: flex;
   justify-content: space-between;
 }
