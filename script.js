@@ -19,7 +19,7 @@ let radioValue = 0;
 let divider = 0;
 
 //Prevent select input radio
-document.querySelector("input[name='custom']").onclick = () => {
+custom.onfocus = () => {
   let radioTeste = document.querySelector("input[type='radio']:checked");
 
   if (radioTeste) {
