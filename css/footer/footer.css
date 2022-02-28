@@ -26,3 +26,11 @@
     background: none;
   }
 }
+
+@media (min-height: 1040px) {
+  .attribution {
+    border-radius: 0px 0px 20px 20px;
+    margin-bottom: 20px;
+    background: none;
+  }
+}
