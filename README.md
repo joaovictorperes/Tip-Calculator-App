@@ -57,5 +57,6 @@ Users should be able to:
 
 ### Continued development
 
-<p>Also I'm going to make the websites much accessible as possible, including semantic tags, aria-labels, etc in the HTML.</p>
-<p>Some things that I will improve are the organization of the commits, code and make a path of what I have to do construct the site and just after this beggin to code.</p>
+<p>In the next projects I will keep focus on mobile-first workflow, because it is a very good way to start an organize the site.</p>
+<p>Also, I'm going to make the websites much accessible as possible, including semantic tags, aria-labels, etc in the HTML.</p>
+<p>Some things that I will improve are the organization of the commits, code and make a path of what I have to do construct the site and just after this, start to code</p>
