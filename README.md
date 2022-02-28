@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Tip Calculator App](https://your-live-site-url.com)
+- Live Site URL: [Tip Calculator App](https://tip-calculator-app-two-flax.vercel.app/)
 
 ## My process
 
