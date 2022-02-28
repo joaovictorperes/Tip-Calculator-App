@@ -25,7 +25,13 @@ custom.onfocus = () => {
   if (radioTeste) {
     radioTeste.checked = false;
 
-    if (value !== "" && Number(value) > 0 && key !== "" && Number(key) > 0) {
+    if (
+      value !== "" &&
+      Number(value) > 0 &&
+      key !== "" &&
+      Number(key) > 0 &&
+      Number.isInteger(key) === true
+    ) {
       if (custom.value !== "") {
         radioValue = custom.value;
 
@@ -58,7 +64,13 @@ function inputCustom(event) {
   } else {
     custom.style.color = "inherit";
 
-    if (value !== "" && Number(value) > 0 && key !== "" && Number(key) > 0) {
+    if (
+      value !== "" &&
+      Number(value) > 0 &&
+      key !== "" &&
+      Number(key) > 0 &&
+      Number.isInteger(key) === true
+    ) {
       resetRemove.removeAttribute("disabled");
       resetRemove.classList.remove("blocked");
       totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
@@ -87,7 +99,13 @@ function radioSelect(event) {
     radioValue = 50;
   }
 
-  if (value !== "" && Number(value) > 0 && key !== "" && Number(key) > 0) {
+  if (
+    value !== "" &&
+    Number(value) > 0 &&
+    key !== "" &&
+    Number(key) > 0 &&
+    Number.isInteger(key) === true
+  ) {
     totalOut.innerHTML = `$${(divider * (radioValue / 100 + 1)).toFixed(2)}`;
     amountOut.innerHTML = `$${(divider * (radioValue / 100)).toFixed(2)}`;
   }
