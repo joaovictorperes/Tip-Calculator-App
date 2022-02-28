@@ -1,8 +1,5 @@
-.calculator {
-  animation: show 2s forwards;
-}
-
 .calculator-main {
+  animation: show 2s forwards;
   background-color: var(--color-n6);
   border-radius: 20px 20px 0px 0px;
   display: grid;
@@ -165,17 +162,6 @@
   cursor: not-allowed;
 }
 
-@keyframes show {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -10px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 @media (min-width: 350px) and (max-width: 951px) {
   .calculator-options label:not(label[for="custom"]) {
     max-width: 200px;
@@ -184,6 +170,17 @@
 
   .input-custom input {
     padding: 7px 16px;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
